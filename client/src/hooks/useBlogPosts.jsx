@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
-function useBlogPosts() {
+export default function useBlogPosts() {
   const [posts, setPosts] = useState([]);
   const [isError, setIsError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
@@ -18,7 +18,9 @@ function useBlogPosts() {
     }
   };
 
+  useEffect(() => {
+    getPosts();
+  }, []);
+
   return { getPosts, posts, isError, isLoading };
 }
-
-export default useBlogPosts;

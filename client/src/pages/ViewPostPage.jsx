@@ -1,15 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import useBlogPosts from "../hooks/useBlogPosts";
 
 function ViewPostPage() {
   const navigate = useNavigate();
 
-  const { getPosts, posts, isError, isLoading } = useBlogPosts();
-
-  useEffect(() => {
-    getPosts();
-  }, []);
+  const { posts, isError, isLoading } = useBlogPosts();
 
   return (
     <div>
